@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './js/store/index';
+import createStore from 'redux';
 import './index.css';
-import notesApp from './reducers'
+import rootReducer from './reducers'
 import App from './js/components/App.jsx';
 import { loadState, saveState } from '../js/localStorage';
 // import * as serviceWorker from './serviceWorker';
@@ -22,6 +22,7 @@ import { loadState, saveState } from '../js/localStorage';
 //     });
 // });
 
+const store = createStore(rootReducer)
 
 render(
     <Provider store= { store }>

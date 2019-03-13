@@ -1,9 +1,7 @@
-import { v4 } from 'node-uuid';
-
 let nextNoteId = 0;
 export const addNote = (text) => ({
     type: 'ADD_NOTE',
-    id: v4(),
+    id: nextNoteId++,
     text,
 });
 
@@ -16,3 +14,9 @@ export const toggleNote = (id) => ({
     type: 'TOGGLE_NOTE',
     id,
 })
+
+export const VisibilityFilters = {
+    SHOW_ALL: 'SHOW_ALL',
+    SHOW_COMPLETED: 'SHOW_COMPLETED',
+    SHOW_ACTIVE: 'SHOW_ACTIVE'
+}
