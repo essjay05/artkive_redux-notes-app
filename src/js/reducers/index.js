@@ -19,9 +19,8 @@ import visibilityFilter from './visibilityFilter';
 // export default rootReducer;
 
 // Below is logic for combined reducer to save/load to/from LocalStorage
-const notesApp = combineReducers({
-    notes,
-    visibilityFilter,
-});
 
-export default notesApp;
+export default combineReducers({
+    notes,
+    visibilityFilter
+})
