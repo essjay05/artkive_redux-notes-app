@@ -5,7 +5,7 @@ const mapStateToProps = state => {
     return { notes: state.notes };
 };
 
-const ConnectedList = ({ notes }) => {
+const ConnectedList = ({ notes }) => (
     <ul className='list-group list-group-flush'>
         {notes.map(el => (
             <li className='list-group-item' key={el.id}>
@@ -13,7 +13,7 @@ const ConnectedList = ({ notes }) => {
             </li>
         ))}
     </ul>
-};
+);
 
 const List = connect(mapStateToProps) (ConnectedList);
 

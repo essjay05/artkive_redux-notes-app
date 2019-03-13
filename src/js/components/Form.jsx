@@ -5,7 +5,7 @@ import { addNote } from '../actions/index';
 
 function mapDispatchToProps(dispatch) {
     return {
-        addNote: note => dispatch(addnote(note))
+        addNote: note => dispatch(addNote(note))
     };
 }
 
@@ -30,7 +30,7 @@ class ConnectedForm extends Component {
         const { title } = this.state;
         const id = uuidv1();
         this.props.addNote({ title, id });
-        this.props.setState({ title: '' });
+        this.setState({ title: '' });
     }
 
     render() {
