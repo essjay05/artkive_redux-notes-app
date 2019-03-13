@@ -4,9 +4,8 @@ import { forbiddenWordsMiddleware } from '../middleware';
 
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(
-    rootReducer,
+const store = createStore(rootReducer, /* preloadedState, */ storeEnhancers(
     applyMiddleware(forbiddenWordsMiddleware)
-);
+));
 
 export default store;
