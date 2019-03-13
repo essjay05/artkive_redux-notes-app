@@ -1,5 +1,6 @@
 import { ADD_NOTE } from '../constants/action-types';
 
+// Testing for filter working with redux:
 const forbiddenWords = ['spam', 'money'];
 
 export function forbiddenWordsMiddleware({ dispatch }) {
