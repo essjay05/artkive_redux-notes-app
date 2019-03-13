@@ -18,6 +18,31 @@ const notes = (state = [], action) => {
     }
 };
 
+const testAddNote = () => {
+    const stateBefore = [];
+    const action = {
+        type: 'ADD_NOTE',
+        id: 0,
+        text: 'Learn Redux'
+    };
+    const stateAfter = [
+        {
+            id: 0,
+            text: 'Learn Redux',
+            completed: false
+        }
+    ];
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+
+    expect(
+        notes(stateBefore, action)
+    ).toEqual(stateAfter);
+};
+
+testAddNote();
+console.log('All tests passed.');
+
 
 
 // export default notes;
