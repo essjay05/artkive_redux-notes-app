@@ -1,11 +1,21 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from '../reducers/index';
-import { forbiddenWordsMiddleware } from '../middleware';
+import { createStore, /* applyMiddleware, */ compose } from 'redux';
+import notesApp from '../reducers/index';
+import { saveState } from '../localStorage';
+import throttle from 'lodash.throttle';
+// import { forbiddenWordsMiddleware } from '../middleware';
 
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(rootReducer, /* preloadedState, */ storeEnhancers(
-    applyMiddleware(forbiddenWordsMiddleware)
+const persistedState = loadState();
+const store = createStore(notesApp, /* preloadedState, */ storeEnhancers(
+    // applyMiddleware(forbiddenWordsMiddleware)
+    persistedState
 ));
+
+store.subscribe(throttle(() => {
+    saveState({
+        notes: store.getState().notes
+    });
+}, 1000));
 
 export default store;

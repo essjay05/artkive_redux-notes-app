@@ -4,9 +4,11 @@ import { Provider } from 'react-redux';
 import store from './js/store/index';
 import './index.css';
 import App from './js/components/App.jsx';
+import { loadState, saveState } from '../js/localStorage';
 // import * as serviceWorker from './serviceWorker';
 // import { BrowserRouter as Router } from 'react-router-dom';
 // import index from './js/index';
+
 
 
 render(
