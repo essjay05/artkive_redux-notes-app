@@ -1,10 +1,18 @@
-import { ADD_NOTE } from '../constants/action-types';
+import { v4 } from 'node-uuid';
 
-export function addNote(payload) {
-    return { type: ADD_NOTE, payload }
-};
+let nextNoteId = 0;
+export const addNote = (text) => ({
+    type: 'ADD_NOTE',
+    id: v4(),
+    text,
+});
 
-// Action Creator test
-export function getData() {
-    return fetch()
-}
+export const setVisibilityFilter = (filter) => ({
+    type: 'SET_VISIBILITY_FILTER',
+    filter,
+});
+
+export const toggleNote = (id) => ({
+    type: 'TOGGLE_NOTE',
+    id,
+})
