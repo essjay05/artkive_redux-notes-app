@@ -1,6 +1,6 @@
 import { createStore, /* applyMiddleware, */ compose } from 'redux';
 import notesApp from '../reducers/index';
-import { saveState } from '../localStorage';
+import { loadState, saveState } from '../localStorage';
 import throttle from 'lodash.throttle';
 // import { forbiddenWordsMiddleware } from '../middleware';
 
